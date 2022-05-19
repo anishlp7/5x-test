@@ -1,4 +1,6 @@
 body {
-    margin: 2.25rem 4rem;
+    margin: 0;
     font-size: 100%;
+    font-family: 'Roboto', sans-serif;
+    background: #fff;
 }

@@ -1,0 +1,51 @@
+.dd-wrapper {
+    position: relative;
+    font-size: 1.6rem;
+    user-select: none;
+  
+    .dd-header {
+      display: flex;
+      align-items: center;
+      position: relative;
+      font-size: 16px;
+      line-height: 16px;
+      color: #002B56;
+      background: none;
+      border: none;
+      border-bottom: 1px solid #C8C8C8;
+      padding-bottom: 8px;
+      letter-spacing: 1px;
+      cursor: pointer;
+  
+      span {
+        display: flex;
+        margin-right: 20px;
+      }
+    }
+    .dd-header-title {
+      margin-right: 30px;
+    }
+   
+    .dd-list {
+      position: absolute;
+      z-index: 10;
+      width: 100%;
+      border: 1px solid #C8C8C8;
+      box-shadow: 0px 6px 5px rgba(0, 0, 0, 0.1), inset 0px -1px 0px #C8C8C8;
+      background: #FFFFFF;
+
+      .dd-list-item{
+          display: flex;
+          flex-direction: column;
+          background: none;
+          border: none;
+          margin: 11px 16px;
+          letter-spacing: 0.5px;
+          font-size: 16px;
+          line-height: 24px;
+          color: #606060
+
+      }
+    
+    }
+  }

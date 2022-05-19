@@ -1,11 +1,15 @@
 import React from 'react';
+import Filter from '../Components/Filters';
+import Header from '../Components/Header';
 import "../Styles/main.scss";
 
 const Main = () => {
     return(
        <div className='mainContainer'>
-           <p className='hdr-txt'>Restaurants</p>
-           <p className='hdr-desc'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <Header />
+          <hr className='main-hr-line' />
+          <Filter />
+          <hr className='main-hr-line' />
        </div>
     );
 };
