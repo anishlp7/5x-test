@@ -1,4 +1,5 @@
 import React from 'react';
+import Categories from '../Components/Categories';
 import Filter from '../Components/Filters';
 import Header from '../Components/Header';
 import "../Styles/main.scss";
@@ -10,6 +11,7 @@ const Main = () => {
           <hr className='main-hr-line' />
           <Filter />
           <hr className='main-hr-line' />
+          <Categories />
        </div>
     );
 };

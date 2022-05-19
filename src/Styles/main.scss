@@ -88,4 +88,82 @@
         
     }
    
+
+    .categoriesContainer{
+        margin: 4rem 4rem 1.5rem 4rem;
+
+        .categoriesHeader{
+            margin: 0;
+            font-size: 34px;
+            line-height: 40px;
+            letter-spacing: 1px;
+            color: #333333;
+        }
+
+        .categoriesListContainer{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .categoriesList{
+            margin: 40px 0;
+            width: 304px;
+            .rect-box{
+                width: 304px;
+                height: 228px;
+                background: #D8D8D8;
+            }
+            .categorylistText{
+                margin: 0;
+                margin-top: 1rem;
+                margin-bottom: 8px;
+                font-size: 20px;
+                line-height: 28px;
+                letter-spacing: 1px;
+                color: #000000;
+            }
+
+            .categoryPlaceValue{
+                margin: 0;
+                margin-top: 1rem;
+                margin-bottom: 20px;
+                font-size: 12px;
+                line-height: 16px;
+                letter-spacing: 0.5px;
+                text-transform: uppercase;
+                color: #757575;
+
+            }
+
+            .categoryBtn{
+                background: #002B56;
+                width: 304px;
+                border: none;
+                border-radius: 2px;
+                color: #fff;
+                font-size: 14px;
+                line-height: 16px;
+                text-align: center;
+                letter-spacing: 1px;
+                text-transform: uppercase;
+                padding: 1rem 0;
+                cursor: pointer;
+            }
+        }
+
+        .loadMoreBtn{
+            width: 416px;
+            height: 48px;
+            border: 1px solid #002B56;
+            border-radius: 2px;
+            font-size: 14px;
+            line-height: 16px;
+            text-align: center;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            background: none;
+            color: #002B53;
+        }
+    }
 }
