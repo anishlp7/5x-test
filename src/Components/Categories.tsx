@@ -1,5 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Rating from "./Rating";
+import Status from "./Status";
+
+
 
 const Categories = ({restaurantLists}:any) => {
     return(
@@ -16,11 +20,13 @@ const Categories = ({restaurantLists}:any) => {
                         <div className="categoriesList" key={item?.id}>
                             <img src={item?.image_url} alt={item?.name} className="categories-img" />
                             <p className="categorylistText">{item.name}</p>
+                            <div className="">
+                                <Rating fontSize='20px' width="9px" ratingValue={item?.rating} />
+                            </div>
                             <div style={{display:'flex', justifyContent:'space-between'}}>
                                 <p className="categoryPlaceValue">{item?.location?.city} - {item?.price}</p>
                                 <div className="status">
-                                    <div className="icon"></div>
-                                    <p className="categoryPlaceValue">Open Now</p>
+                                    <Status  fontSize="12px" isClosed={item?.is_closed} size="8px" />
                                 </div>
                             </div>
                             <Link to="/details" state={{item: item}} className="categoryBtn">Learn More</Link>

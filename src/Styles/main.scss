@@ -134,6 +134,20 @@
 
             }
 
+            .status {
+                display: flex;
+                align-items: center;
+
+                p {
+                    margin: 0;
+                    margin-left: 4px;
+                    line-height: 16px;
+                    letter-spacing: 0.5px;
+                    color: #757575;  
+                    text-transform: uppercase;    
+                }
+            }
+
             .categoryBtn{
                 background: #002B56;
                 width: 304px;
