@@ -79,6 +79,13 @@
             letter-spacing: 0.857px;
             padding: 11px 16px;
             font-weight: 700;
+            cursor: pointer;
+
+            &:disabled {
+                border: 1px solid #E6E6E6;
+                color: #C8C8C8;
+                cursor: not-allowed;
+            }
         }
 
         
