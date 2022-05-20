@@ -16,7 +16,7 @@ const DetailMapSection = ({location, image_url}:mapLocation) => {
     return(
             <div className="detailSecMapContainer">
                 <div className="detailSecMap">
-                    <img src="./assets/map.png" alt="map" className="mapStyle" />
+                    <img src="/assets/map.png" alt="map" className="mapStyle" />
                     <img src={image_url} alt="map" className="imageStyle" />
                     <img src={image_url} alt="map" className="imageStyle" />
                 </div>

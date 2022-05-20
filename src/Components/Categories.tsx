@@ -9,7 +9,7 @@ const Categories = ({restaurantLists}:any) => {
             {
                 restaurantLists.length <= 0 ?
                 (
-                    <p className="noRestaurantMsg">No restaurants available</p>
+                    <p className="loading">Please wait...</p>
                 ):
                 (restaurantLists || []).map((item:any) => {
                     return(
@@ -23,7 +23,7 @@ const Categories = ({restaurantLists}:any) => {
                                     <p className="categoryPlaceValue">Open Now</p>
                                 </div>
                             </div>
-                            <Link to="/view" state={{item: item}} className="categoryBtn">Learn More</Link>
+                            <Link to="/details" state={{item: item}} className="categoryBtn">Learn More</Link>
                         </div>
                     )
                 })

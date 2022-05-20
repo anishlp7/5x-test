@@ -9,10 +9,10 @@ const Main = () => {
    const [restaurantLists, setRestaurantLists] = useState([]);
 
    useEffect(() => {
-      handleListingSavedSearch()
+    handleRestaurantListingAPI()
    }, [])
 
-   const handleListingSavedSearch = async () => {
+   const handleRestaurantListingAPI = async () => {
       let response = await fetch(
         `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=Las Vegas&latitude=37.786882&longitude=-122.399972`,
         {

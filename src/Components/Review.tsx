@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import Rating from './Rating';
 
 type ReviewProps = {
-    restId: string
+    restId: string,
+    reviewCount: number
 }
 
 type ReviewList = {
@@ -21,7 +22,7 @@ type User = {
     profile_url:string
 }
 
-const Review = ({restId}:ReviewProps) => {
+const Review = ({restId, reviewCount}:ReviewProps) => {
     const [reviewList, setReviewList] = useState([])
 
     useEffect(() => {
@@ -50,8 +51,12 @@ const Review = ({restId}:ReviewProps) => {
 
     return(
         <div className='reviewContainer'>
-            <p className='reviewHeaderTitle'>321 Reviews</p>
+            <p className='reviewHeaderTitle'>{reviewCount} Reviews</p>
             {
+                 reviewList.length <= 0 ?
+                 (
+                     <p className="loading">Loading reviews...</p>
+                 ):
                 reviewList.map((val:ReviewList) => {
                     return(
                         <>

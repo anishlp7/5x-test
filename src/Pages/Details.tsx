@@ -24,7 +24,7 @@ const DetailsView = () => {
             <hr className='main-hr-line' />
             <DetailMapSection location={state?.item?.location} image_url={state?.item?.image_url} />
             <hr className='main-hr-line' />
-            <Review restId={state?.item?.id}  />
+            <Review restId={state?.item?.id} reviewCount={state?.item?.review_count}  />
         </div>
     );
 };
