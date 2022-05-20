@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Categories = ({restaurantLists}:any) => {
     return(
@@ -11,7 +12,6 @@ const Categories = ({restaurantLists}:any) => {
                     <p className="noRestaurantMsg">No restaurants available</p>
                 ):
                 (restaurantLists || []).map((item:any) => {
-                    console.log("Checking the res", item.length)
                     return(
                         <div className="categoriesList" key={item?.id}>
                             <img src={item?.image_url} alt={item?.name} className="categories-img" />
@@ -23,7 +23,7 @@ const Categories = ({restaurantLists}:any) => {
                                     <p className="categoryPlaceValue">Open Now</p>
                                 </div>
                             </div>
-                            <button type="button" className="categoryBtn">Learn More</button>
+                            <Link to="/view" state={{item: item}} className="categoryBtn">Learn More</Link>
                         </div>
                     )
                 })

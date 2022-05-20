@@ -1,26 +1,78 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Rating from './Rating';
 
-const Review = () => {
+type ReviewProps = {
+    restId: string
+}
+
+type ReviewList = {
+    id: string,
+    rating: number,
+    text: string,
+    url: string,
+    user: User,
+    time_created: string
+}
+
+type User = {
+    id: string,
+    image_url: string,
+    name: string,
+    profile_url:string
+}
+
+const Review = ({restId}:ReviewProps) => {
+    const [reviewList, setReviewList] = useState([])
+
+    useEffect(() => {
+        handleReview()
+    }, [])
+
+    const handleReview= async () => {
+        let response = await fetch(
+          `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/${restId}/reviews`,
+          {
+            method: "GET",
+            headers: {
+              Authorization: `Bearer 7vrWaGQ5iXEQRR-1J5BiJC41KyuhMSAyc_k_exSRbg_s47HGVEWNGl6kfI27rL_vK59-AI--au8ET5XWyp4h5Hz9_nkEwToSUF2F_AjlVDeJ5a2nPFCCbkf9tIaGYnYx`,
+            },
+          }
+        )
+          .then((response) => response.json())
+          .then((data) => {
+             console.log("Checking the data", data)
+             setReviewList(data?.reviews)
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+          });
+      }
+
     return(
         <div className='reviewContainer'>
             <p className='reviewHeaderTitle'>321 Reviews</p>
-            <div className='reviewList'>
-                <div className='reviewProfile'>
-                    <img src='./assets/map.png' alt="profile" className='reviewProfileImage' />
-                    <div className='reviewProfileDet'>
-                        <p className='reviewProfileName'>Brian B</p>
-                        <p className='reviewCommentDate'>10/9/2018</p>
-                    </div>
-                </div>
-                <div className='reviewContent'>
-                    <Rating fontSize='20px' width="9px" ratingValue={3*2} />
-                    <p className='reviewContentText'>Don't be fooled by the French name, this place oozes with Californian flair. Their space is phenomenal: bright, warm colors yet clean and inviting. I've been twice for brunch and both times have been incredible! On our next trip to LA, I should really check out dinner since they seem to do more classic French preparations at that time. <br /><br />
-                    For brunch, drool over the cast-iron pots of shakshouka, perfectly jiggly eggs over kimchi fried rice, marvel at their artful breakfast toasts and do good by ordering a fresh squeezed green juice. You'll need it to feel less guilty when you devour their sweet sticky bun or their creamy delicious Hazelnut puffs. OMG. I'm still dreaming about those cream puffs right now ...<br /><br />
-                    Calories be damned.</p>
-                </div>
-            </div>
-            <hr className='main-hr-line' />
+            {
+                reviewList.map((val:ReviewList) => {
+                    return(
+                        <>
+                        <div className='reviewList'>
+                            <div className='reviewProfile'>
+                                <img src={val?.user?.image_url} alt="profile" className='reviewProfileImage' />
+                                <div className='reviewProfileDet'>
+                                    <p className='reviewProfileName'>{val?.user?.name}</p>
+                                    <p className='reviewCommentDate'>{val?.time_created}</p>
+                                </div>
+                            </div>
+                            <div className='reviewContent'>
+                                <Rating fontSize='20px' width="9px" ratingValue={val?.rating} />
+                                <p className='reviewContentText'>{val?.text}</p>
+                            </div>
+                        </div>
+                        <hr className='main-hr-line' style={{marginBottom:'80px'}} />
+                        </>
+                    )
+                })
+            }
         </div>
     );
 };

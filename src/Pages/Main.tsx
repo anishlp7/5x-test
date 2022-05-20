@@ -9,7 +9,7 @@ const Main = () => {
    const [restaurantLists, setRestaurantLists] = useState([]);
 
    useEffect(() => {
-      //handleListingSavedSearch()
+      handleListingSavedSearch()
    }, [])
 
    const handleListingSavedSearch = async () => {

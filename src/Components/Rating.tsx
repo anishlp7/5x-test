@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import "../Styles/rating.scss";
 
 type Rating = {
     fontSize: string,
@@ -8,7 +7,7 @@ type Rating = {
 }
 
 const Rating = ({fontSize, width, ratingValue}: Rating) => {
-    const [rating, setRating] = useState(ratingValue);
+    const [rating, setRating] = useState(ratingValue*2-1);
 
     let stars = [];
     for (let i = 0; i < 10; i++) {

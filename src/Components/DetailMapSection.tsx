@@ -1,14 +1,26 @@
 import React from 'react';
 
-const DetailMapSection = () => {
+type mapLocation = {
+    location: locationProps,
+    image_url: string
+}
+
+type locationProps = {
+    address1:string,
+    city: string,
+    state: string,
+    zip_code: string
+}
+
+const DetailMapSection = ({location, image_url}:mapLocation) => {
     return(
             <div className="detailSecMapContainer">
                 <div className="detailSecMap">
                     <img src="./assets/map.png" alt="map" className="mapStyle" />
-                    <img src="./assets/map.png" alt="map" className="imageStyle" />
-                    <img src="./assets/map.png" alt="map" className="imageStyle" />
+                    <img src={image_url} alt="map" className="imageStyle" />
+                    <img src={image_url} alt="map" className="imageStyle" />
                 </div>
-                <p className="mapLocation">624 S La Brea Ave Los Angeles, CA 90036</p>
+                <p className="mapLocation">{`${location.address1}, ${location.city}, ${location.state} ${location.zip_code}`}</p>
             </div>
     );
 };
