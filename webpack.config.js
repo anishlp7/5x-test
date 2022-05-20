@@ -9,13 +9,16 @@ module.exports = {
   output: {
     path: __dirname + '/build/',
   },
+  devServer:{
+    historyApiFallback: true
+  },
   module: {
     rules: [
       {
         test: /\.(ts|tsx)$/,
         exclude: /node_modules/,
         resolve: {
-          extensions: ['.ts', '.tsx', '.js', '.json'],
+          extensions: ['.ts', '.tsx', '.js', '.json', 'png'],
         },
         use: 'ts-loader',
       },

@@ -30,15 +30,17 @@ const CustomDropdown = ({ title, list }: DropdownProps) => {
         <div className="dd-list">
           {list.map((item: options) => {
             return (
-              <button
-                type="button"
-                className="dd-list-item"
+              <label
+             
+                className="dd-list-item container"
                 key={item.id}
                 onClick={() => selectItem(item)}
               >
+                <input type="checkbox" />
+                <span className="checkmark"></span>
                 {item.value}
                 {' '}
-              </button>
+              </label>
             );
           })}
         </div>

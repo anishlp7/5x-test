@@ -23,10 +23,6 @@
         }
     }
 
-    .main-hr-line{
-        border-top: 1px solid #E6E6E6;
-    }
-
     .filterContainer{
         margin: 1.56rem 4rem 1.5rem 4rem;
         display: flex;
@@ -104,15 +100,22 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
+
+            .noRestaurantMsg{
+                width: 100%;
+                font-size: 1.5rem;
+                text-align: center;
+            }
         }
 
         .categoriesList{
             margin: 40px 0;
             width: 304px;
-            .rect-box{
+            .categories-img{
                 width: 304px;
                 height: 228px;
                 background: #D8D8D8;
+                object-fit: cover;
             }
             .categorylistText{
                 margin: 0;

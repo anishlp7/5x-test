@@ -1,18 +1,23 @@
 import React from "react";
 
-const Categories = () => {
+const Categories = ({restaurantLists}:any) => {
     return(
         <section className="categoriesContainer">
             <p className="categoriesHeader">All Restaurants</p>
             <div className="categoriesListContainer">
             {
-                [0,1,2,3,4,5,6,7].map((item:number) => {
+                restaurantLists.length <= 0 ?
+                (
+                    <p className="noRestaurantMsg">No restaurants available</p>
+                ):
+                (restaurantLists || []).map((item:any) => {
+                    console.log("Checking the res", item.length)
                     return(
-                        <div className="categoriesList">
-                            <div className="rect-box"></div>
-                            <p className="categorylistText">Very Long Name Restaurants Number 1 In List</p>
+                        <div className="categoriesList" key={item?.id}>
+                            <img src={item?.image_url} alt={item?.name} className="categories-img" />
+                            <p className="categorylistText">{item.name}</p>
                             <div style={{display:'flex', justifyContent:'space-between'}}>
-                                <p className="categoryPlaceValue">THAI - $$$</p>
+                                <p className="categoryPlaceValue">{item?.location?.city} - {item?.price}</p>
                                 <div className="status">
                                     <div className="icon"></div>
                                     <p className="categoryPlaceValue">Open Now</p>

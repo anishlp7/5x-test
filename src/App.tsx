@@ -1,10 +1,17 @@
 import React from 'react';
 import Main from "./Pages/Main";
 import "./app.css";
+import { Routes, Route } from "react-router-dom";
+import DetailsView from './Pages/Details';
 
 const App = () => {
     return(
-        <Main />
+        <div className=''>
+            <Routes>
+                <Route path="/" element={<Main />} />
+                <Route path="view" element={<DetailsView />} />
+            </Routes>
+        </div>     
     );
 };
 

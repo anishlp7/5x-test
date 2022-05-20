@@ -1,0 +1,136 @@
+.detailsSecContainer{
+    .detailSecHeaderContainer{
+        margin: 2.25rem 4rem;
+        .detailSecHeader{
+            font-size: 3.375rem;
+            line-height: 4rem;
+            letter-spacing: 0.96px;
+            margin: 0;
+            color: #333333;
+            font-weight: 300;
+        }
+
+        .detailLoc{
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1.5rem;
+
+            .detailLocName{
+                margin: 0;
+                font-size: 22px;
+                line-height: 32px;
+                letter-spacing: 0.916667px;
+                color: #666666;
+                opacity: 0.7;
+                font-weight: 300;
+            }
+
+            .detailShopStatus{
+                p {
+                    margin: 0;
+                    font-size: 22px;
+                    line-height: 32px;
+                    letter-spacing: 0.916667px;
+                    color: #666666;
+                    opacity: 0.7;
+                    font-weight: 300;
+                }
+            }
+        }
+    }
+
+    .detailSecMapContainer{
+        margin: 3rem 4rem;
+
+        .detailSecMap{
+            display: flex;
+
+            .mapStyle{
+                width: 640px;
+                height: 228px;
+            }
+
+            .imageStyle{
+               margin-left: 2rem;
+               width: 304px;
+               height: 228px;
+               object-fit: cover; 
+            }
+        }
+
+        .mapLocation{
+            margin: 0;
+            margin-top: 1rem;
+            font-size: 20px;
+            line-height: 28px;
+            letter-spacing: 1px;
+            color: #000000;
+            margin-bottom: 3rem;   
+            font-weight: 300;       
+        }
+    }
+
+    .reviewContainer{
+        margin: 3rem 4rem;
+
+        .reviewHeaderTitle{
+            font-size: 22px;
+            line-height: 32px;
+            letter-spacing: 0.916667px;
+            color: #666666;
+            opacity: 0.7;
+            font-weight: 300;
+        }
+
+        .reviewList{
+            margin-bottom: 3rem;
+            display: grid;
+            grid-template-columns: 20% 80%;
+
+            .reviewProfile{
+                display: flex;
+                .reviewProfileImage{
+                    height: 80px;
+                    width: 80px;
+                    object-fit: cover;
+                }
+    
+                .reviewProfileDet{
+                    margin-left: 2rem;
+    
+                    .reviewProfileName{
+                        font-size: 22px;
+                        line-height: 24px;
+                        letter-spacing: 0.916667px;
+                        color: #000000;
+                        margin: 0;
+                    }
+    
+                    .reviewCommentDate{
+                        font-size: 16px;
+                        line-height: 24px;
+                        color: #666666;
+                        opacity: 0.7;
+                        font-weight: 300;    
+                        margin: 0;  
+                        margin-top: 6px;                               
+                    }
+                }
+            }
+
+            .reviewContent{
+
+                .reviewContentText{
+                    margin-top: 20px;
+                    margin-bottom: 73px;
+                    font-size: 20px;
+                    line-height: 28px;
+                    letter-spacing: 1px;
+                    color: #000000;  
+                    font-weight: 300;                 
+                }
+            }
+
+        }
+    }
+}
