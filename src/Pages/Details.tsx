@@ -2,6 +2,7 @@ import React from "react";
 import DetailMapSection from "../Components/DetailMapSection";
 import Rating from "../Components/Rating";
 import Review from "../Components/Review";
+import Status from "../Components/Status";
 import "../Styles/details.scss";
 
 const DetailsView = () => {
@@ -13,7 +14,7 @@ const DetailsView = () => {
                 <div className="detailLoc">
                     <p className="detailLocName">Japanese • $$$</p>
                     <div className="detailShopStatus">
-                    <p className="">Open Now</p> 
+                        <Status isClosed={false} size='20px' fontSize='22px' />
                     </div>
                 </div>
             </div>
