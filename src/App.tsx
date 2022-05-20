@@ -3,6 +3,7 @@ import Main from "./Pages/Main";
 import "./app.css";
 import { Routes, Route } from "react-router-dom";
 import DetailsView from './Pages/Details';
+import "./Styles/responsiveness.scss";
 
 const App = () => {
     return(

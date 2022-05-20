@@ -1,0 +1,42 @@
+@media only screen and (max-width: 768px) {
+
+    .hdr-container, .filterContainer, .categoriesContainer, .detailSecHeaderContainer, .detailSecMapContainer, .reviewContainer {
+        margin: 2.25rem 2rem !important;
+    }
+
+    .hdr-desc{
+        width: auto !important;
+    }
+
+    .filterContainer, .formStyle, .detailSecMap, .detailLoc{
+        flex-wrap: wrap;
+    }
+
+    .filterBtn{
+        margin-top: 1rem;
+        width: 100%;
+    }
+
+    .ipradioContainer, .selectContainer {
+        margin-bottom: 1rem;
+        margin-left: 1.5rem;
+    }
+
+    .mapStyle{
+        width: 300px !important;
+    }
+
+    .imageStyle{
+        margin-left: 0 !important;
+        margin-top: 1rem;
+        margin-bottom: 1rem !important;
+    }
+
+    .reviewList {
+        grid-template-columns: 100% !important
+    }
+
+    .reviewContent, .detailShopStatus{
+        margin-top: 1rem;
+    }
+}
