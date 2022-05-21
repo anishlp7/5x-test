@@ -24,7 +24,7 @@ const Categories = ({restaurantLists}:any) => {
                                 <Rating fontSize='20px' width="9px" ratingValue={item?.rating} />
                             </div>
                             <div style={{display:'flex', justifyContent:'space-between'}}>
-                                <p className="categoryPlaceValue">{item?.location?.city} - {item?.price}</p>
+                                <p className="categoryPlaceValue">{item?.categories[0]?.title} - {item?.price}</p>
                                 <div className="status">
                                     <Status  fontSize="12px" isClosed={item?.is_closed} size="8px" />
                                 </div>

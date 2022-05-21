@@ -7,8 +7,10 @@ type FilterProps = {
     isOpen: Boolean,
     priceFilter: options[],
     setIsOpen: Dispatch<SetStateAction<boolean>>,
-    setPriceFilter: Dispatch<SetStateAction<options[]>>
+    setPriceFilter: Dispatch<SetStateAction<any>>
     setRestaurantLists?:Dispatch<SetStateAction<never[]>>,
+    setCategoryFilter?:Dispatch<SetStateAction<never[]>>,
+    catogoryFilter:any,
     restaurantListsMain: any
 }
 
