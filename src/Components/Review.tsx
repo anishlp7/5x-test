@@ -31,7 +31,7 @@ const Review = ({restId, reviewCount}:ReviewProps) => {
 
     const handleReview= async () => {
         let response = await fetch(
-          `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/${restId}/reviews`,
+          `${process.env.REACT_APP_BUSINESSES}/${restId}/reviews`,
           {
             method: "GET",
             headers: {

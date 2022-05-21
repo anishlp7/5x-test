@@ -23,6 +23,7 @@ const Main = () => {
     //  setRestaurantListsMain(parsedData)
     //handleRestaurantListingAPI()
     //handleCategoriesListingAPI()
+    console.log("Checkig th ereact app", process.env.REACT_APP_API_KEY)
    }, []);
 
    const handleClearFilter = () => {
@@ -34,7 +35,7 @@ const Main = () => {
      } else {
       setIsOpen(false);
       setPriceFilter([])
-      setRestaurantLists?.(restaurantListsMain)
+      setRestaurantLists(restaurantListsMain)
      }
      
    }
@@ -42,7 +43,7 @@ const Main = () => {
    useEffect(() => {
     if((isOpen || priceFilter.length > 0) && catogoryFilter.length <= 0){
       console.log("Testing the client filter", isOpen, priceFilter)
-      handleClientFiltering()
+      handleClientFiltering(restaurantListsMain)
     } else if(catogoryFilter.length > 0){
       console.log("Testing the category filter", catogoryFilter);
       let categoryFIlterValue:string;
@@ -61,7 +62,7 @@ const Main = () => {
 
    }, [isOpen, priceFilter, catogoryFilter]);
 
-   const handleClientFiltering = () => {
+   const handleClientFiltering = (restaurantListsMain:any) => {
      let filterValues;
      let myArrayFiltered;
       console.log("Checking the values", priceFilter)
@@ -94,11 +95,11 @@ const Main = () => {
 
    const handleCategoryBasedListingAPI = async (categoryValue: string) => {
     let response = await fetch(
-      `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=restaurants&latitude=37.786882&longitude=-122.399972&location=Las Vegas&categories=${categoryValue}`,
+      `${process.env.REACT_APP_SEARCH_URL}&categories=${categoryValue}`,
       {
         method: "GET",
         headers: {
-          Authorization: `Bearer 7vrWaGQ5iXEQRR-1J5BiJC41KyuhMSAyc_k_exSRbg_s47HGVEWNGl6kfI27rL_vK59-AI--au8ET5XWyp4h5Hz9_nkEwToSUF2F_AjlVDeJ5a2nPFCCbkf9tIaGYnYx`,
+          Authorization: `Bearer ${process.env.REACT_APP_API_KEY}`,
         },
       }
     )
@@ -106,7 +107,7 @@ const Main = () => {
       .then((data) => {
          console.log("Checking the data", data)
          localStorage.setItem('categories', JSON.stringify(data?.businesses))
-       setRestaurantLists(data?.businesses)
+         handleClientFiltering(data?.businesses)
        setRestaurantListsMain(data?.businesses)
       })
       .catch((error) => {
@@ -116,11 +117,11 @@ const Main = () => {
 
    const handleRestaurantListingAPI = async () => {
       let response = await fetch(
-        `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=restaurants&latitude=37.786882&longitude=-122.399972&location=Las Vegas`,
+        `${process.env.REACT_APP_SEARCH_URL}`,
         {
           method: "GET",
           headers: {
-            Authorization: `Bearer 7vrWaGQ5iXEQRR-1J5BiJC41KyuhMSAyc_k_exSRbg_s47HGVEWNGl6kfI27rL_vK59-AI--au8ET5XWyp4h5Hz9_nkEwToSUF2F_AjlVDeJ5a2nPFCCbkf9tIaGYnYx`,
+            Authorization: `Bearer ${process.env.REACT_APP_API_KEY}`,
           },
         }
       )
@@ -138,11 +139,11 @@ const Main = () => {
 
     const handleCategoriesListingAPI = async () => {
       let response = await fetch(
-        `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/categories`,
+        `${process.env.REACT_APP_CATEGORIES}`,
         {
           method: "GET",
           headers: {
-            Authorization: `Bearer 7vrWaGQ5iXEQRR-1J5BiJC41KyuhMSAyc_k_exSRbg_s47HGVEWNGl6kfI27rL_vK59-AI--au8ET5XWyp4h5Hz9_nkEwToSUF2F_AjlVDeJ5a2nPFCCbkf9tIaGYnYx`,
+            Authorization: `Bearer ${process.env.REACT_APP_API_KEY}`,
           },
         }
       )

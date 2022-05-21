@@ -20,7 +20,7 @@ const CustomDropdown = ({ title, list,setSelectedFilter, selectedFilter }: Dropd
       selectedFilter?.splice(findValue, 1);
       setSelectedFilter?.([...selectedFilter || []])
     } else {
-      console.log("Just Logging in")
+      console.log("Console it")
     }
   };
 
