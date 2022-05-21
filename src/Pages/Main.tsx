@@ -10,21 +10,10 @@ const Main = () => {
    const [restaurantLists, setRestaurantLists] = useState([]);
    const [restaurantListsMain, setRestaurantListsMain] = useState([]);
    const [isOpen, setIsOpen] = useState(false);
-   const [priceFilter, setPriceFilter] = useState([]);
+   const [priceFilter, setPriceFilter] = useState<string[]>([]);
    const [categoriesList, setCategoriesList] = useState([]);
    const [catogoryFilter, setCategoryFilter] = useState<string[]>([]);
    const [initialLoad, setinitialLoad] = useState<Boolean>(true);
-
-   useEffect(() => {
-    // const localStorageItem:any = localStorage.getItem('categories')
-    // const parsedData = JSON.parse(localStorageItem)
-    // console.log("Checking the localStorgae", parsedData)
-    //  setRestaurantLists(parsedData)
-    //  setRestaurantListsMain(parsedData)
-    //handleRestaurantListingAPI()
-    //handleCategoriesListingAPI()
-    console.log("Checkig th ereact app", process.env.REACT_APP_API_KEY)
-   }, []);
 
    const handleClearFilter = () => {
      if(catogoryFilter.length > 0) {
@@ -42,10 +31,8 @@ const Main = () => {
 
    useEffect(() => {
     if((isOpen || priceFilter.length > 0) && catogoryFilter.length <= 0){
-      console.log("Testing the client filter", isOpen, priceFilter)
       handleClientFiltering(restaurantListsMain)
     } else if(catogoryFilter.length > 0){
-      console.log("Testing the category filter", catogoryFilter);
       let categoryFIlterValue:string;
       if(catogoryFilter.includes('All')) {
         categoryFIlterValue = ''
@@ -54,7 +41,6 @@ const Main = () => {
       }
       handleCategoryBasedListingAPI(categoryFIlterValue);
     } else if(initialLoad){
-      console.log("Initializeing the useEffect");
       handleRestaurantListingAPI();
       handleCategoriesListingAPI();
       setinitialLoad(false);
@@ -65,7 +51,6 @@ const Main = () => {
    const handleClientFiltering = (restaurantListsMain:any) => {
      let filterValues;
      let myArrayFiltered;
-      console.log("Checking the values", priceFilter)
      if(!isOpen && priceFilter.length <= 0){
       return setRestaurantLists(restaurantListsMain)
      }
@@ -105,8 +90,6 @@ const Main = () => {
     )
       .then((response) => response.json())
       .then((data) => {
-         console.log("Checking the data", data)
-         localStorage.setItem('categories', JSON.stringify(data?.businesses))
          handleClientFiltering(data?.businesses)
        setRestaurantListsMain(data?.businesses)
       })
@@ -127,8 +110,6 @@ const Main = () => {
       )
         .then((response) => response.json())
         .then((data) => {
-           console.log("Checking the data", data)
-           localStorage.setItem('categories', JSON.stringify(data?.businesses))
          setRestaurantLists(data?.businesses)
          setRestaurantListsMain(data?.businesses)
         })
@@ -149,13 +130,10 @@ const Main = () => {
       )
         .then((response) => response.json())
         .then((data) => {
-          console.log("Chekcing the log data by....", data);
           const filteredData = data.categories.filter((val:any) => {
             return val.parent_aliases[0] === "restaurants"
           })
-          console.log("Checking the filters", filteredData)
           setCategoriesList(filteredData)
-           localStorage.setItem('categoriesList', JSON.stringify(filteredData))
          
         })
         .catch((error) => {

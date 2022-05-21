@@ -5,13 +5,13 @@ import { options } from "../data/FilterDropDown"
 
 type FilterProps = {
     isOpen: Boolean,
-    priceFilter: options[],
+    priceFilter: string[],
     setIsOpen: Dispatch<SetStateAction<boolean>>,
-    setPriceFilter: Dispatch<SetStateAction<any>>
+    setPriceFilter: Dispatch<SetStateAction<string[]>>
     setCategoryFilter?:Dispatch<SetStateAction<string[]>>,
     categoryFilter:string[],
     categoriesList:any,
-    handleClearFilter:any
+    handleClearFilter: () => void;
 }
 
 const Filter = ({isOpen, priceFilter,handleClearFilter, setIsOpen, setPriceFilter, setCategoryFilter, categoryFilter, categoriesList}: FilterProps) => {

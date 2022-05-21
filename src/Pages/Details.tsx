@@ -8,7 +8,6 @@ import "../Styles/details.scss";
 
 const DetailsView = () => {
     const { state }:any = useLocation();
-    console.log("Checking the props", state);
     return(
         <div className="detailsSecContainer">
             <div className="detailSecHeaderContainer">

@@ -5,17 +5,17 @@ import { options } from "../data/FilterDropDown";
 type DropdownProps = {
   title: string,
   list: Array<options>,
-  selectedFilter?: any,
-  setSelectedFilter?: Dispatch<SetStateAction<any>>
+  selectedFilter?: string[],
+  setSelectedFilter?: Dispatch<SetStateAction<string[]>>
 };
 
 const CustomDropdown = ({ title, list,setSelectedFilter, selectedFilter }: DropdownProps) => {
   const [isListOpen, setIsListOpen] = useState<Boolean>(false);
 
   const selectItem = (e:any, item: options) => {
-    const findValue = (selectedFilter|| []).findIndex((val:any) => val === item.alias);
+    const findValue = (selectedFilter|| []).findIndex((val:string) => val === item.alias);
     if(e.target.checked === true){
-      setSelectedFilter?.((oldArray:any) => [...oldArray, item.alias])
+      setSelectedFilter?.((oldArray:string[]) => [...oldArray, item.alias])
     } else if(findValue !== -1) {
       selectedFilter?.splice(findValue, 1);
       setSelectedFilter?.([...selectedFilter || []])

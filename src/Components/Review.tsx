@@ -41,7 +41,6 @@ const Review = ({restId, reviewCount}:ReviewProps) => {
         )
           .then((response) => response.json())
           .then((data) => {
-             console.log("Checking the data", data)
              setReviewList(data?.reviews)
           })
           .catch((error) => {
