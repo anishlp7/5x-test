@@ -32,6 +32,8 @@
       border: 1px solid #C8C8C8;
       box-shadow: 0px 6px 5px rgba(0, 0, 0, 0.1), inset 0px -1px 0px #C8C8C8;
       background: #FFFFFF;
+      height: 200px;
+      overflow-x: overlay;
 
       .dd-list-item{
           display: flex;

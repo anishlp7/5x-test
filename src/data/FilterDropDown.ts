@@ -1,7 +1,8 @@
 export type options= {
-    id: number,
-    value: string
-}
+    id?: number,
+    alias: string,
+    title: string
+} 
 
 
 export const categoriesOptions = [
@@ -42,22 +43,27 @@ export const categoriesOptions = [
 export const priceOptions = [
     {
         id:1,
-        value:'All'
+        alias:'All',
+        title:'All'
     },
     {
         id:2,
-        value:'$'
+        alias:'$',
+        title:'$'
     },
     {
         id:3,
-        value:'$$'
+        alias:'$$',
+        title:'$$'
     },
     {
         id:4,
-        value:'$$$'
+        alias:'$$$',
+        title:'$$$'
     },
     {
         id:5,
-        value:'$$$$'
+        alias:'$$$$',
+        title:'$$$$'
     },
 ]

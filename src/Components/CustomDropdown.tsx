@@ -5,27 +5,23 @@ import { options } from "../data/FilterDropDown";
 type DropdownProps = {
   title: string,
   list: Array<options>,
-  priceFilter?: any,
-  setPriceFilter?: Dispatch<SetStateAction<any>>
+  selectedFilter?: any,
+  setSelectedFilter?: Dispatch<SetStateAction<any>>
 };
 
-const CustomDropdown = ({ title, list,setPriceFilter, priceFilter }: DropdownProps) => {
+const CustomDropdown = ({ title, list,setSelectedFilter, selectedFilter }: DropdownProps) => {
   const [isListOpen, setIsListOpen] = useState<Boolean>(false);
 
   const selectItem = (e:any, item: options) => {
-    console.log("Checked the e",e.target.checked)
-    const findValue = (priceFilter|| []).findIndex((val:any) => val === item.value);
+    const findValue = (selectedFilter|| []).findIndex((val:any) => val === item.alias);
     if(e.target.checked === true){
-      setPriceFilter?.((oldArray:any) => [...oldArray, item.value])
+      setSelectedFilter?.((oldArray:any) => [...oldArray, item.alias])
     } else if(findValue !== -1) {
-      priceFilter?.splice(findValue, 1);
-      console.log("Checking the final FIlter", priceFilter)
-      setPriceFilter?.([...priceFilter || []])
+      selectedFilter?.splice(findValue, 1);
+      setSelectedFilter?.([...selectedFilter || []])
     } else {
       console.log("Just Logging in")
     }
-    console.log(findValue)
-   
   };
 
   const toggleList = () => {
@@ -54,7 +50,7 @@ const CustomDropdown = ({ title, list,setPriceFilter, priceFilter }: DropdownPro
               >
                 <input type="checkbox" style={{display:'none'}} />
                 <div className="checkmark"></div>
-                {item.value}
+                {item.title}
                 {' '}
               </label>
             );

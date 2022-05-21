@@ -1,6 +1,6 @@
 import React, {Dispatch, SetStateAction, useRef} from "react";
 import CustomDropdown from "./CustomDropdown";
-import { priceOptions, categoriesOptions } from "../data/FilterDropDown";
+import { priceOptions  } from "../data/FilterDropDown";
 import { options } from "../data/FilterDropDown"
 
 type FilterProps = {
@@ -8,18 +8,16 @@ type FilterProps = {
     priceFilter: options[],
     setIsOpen: Dispatch<SetStateAction<boolean>>,
     setPriceFilter: Dispatch<SetStateAction<any>>
-    setRestaurantLists?:Dispatch<SetStateAction<never[]>>,
-    setCategoryFilter?:Dispatch<SetStateAction<never[]>>,
-    catogoryFilter:any,
-    restaurantListsMain: any
+    setCategoryFilter?:Dispatch<SetStateAction<string[]>>,
+    categoryFilter:string[],
+    categoriesList:any,
+    handleClearFilter:any
 }
 
-const Filter = ({isOpen, priceFilter,restaurantListsMain, setRestaurantLists, setIsOpen, setPriceFilter}: FilterProps) => {
+const Filter = ({isOpen, priceFilter,handleClearFilter, setIsOpen, setPriceFilter, setCategoryFilter, categoryFilter, categoriesList}: FilterProps) => {
     const filterForm:any = useRef();
     const handleResetFilter = () => {
-        setIsOpen(false);
-        setPriceFilter([])
-        setRestaurantLists?.(restaurantListsMain)
+        handleClearFilter()
         filterForm.current.reset()
     }
     return(
@@ -32,16 +30,16 @@ const Filter = ({isOpen, priceFilter,restaurantListsMain, setRestaurantLists, se
                             <label className="form-label">Open Now</label>
                         </div>
                         <div className="selectContainer">
-                            <CustomDropdown title="Price" list={priceOptions} priceFilter={priceFilter} setPriceFilter={setPriceFilter} />
+                            <CustomDropdown title="Price" list={priceOptions} selectedFilter={priceFilter} setSelectedFilter={setPriceFilter} />
                         </div>
 
                         <div className="selectContainer">
-                            <CustomDropdown title="Categories" list={categoriesOptions}  />
+                            <CustomDropdown title="Categories" list={categoriesList} selectedFilter={categoryFilter} setSelectedFilter={setCategoryFilter}  />
                         </div>
 
                 </form>
             </div>
-            <button className="filterBtn" type="reset" onClick={handleResetFilter} disabled={(isOpen || priceFilter.length > 0) ? false : true}>Clear All</button>
+            <button className="filterBtn" type="reset" onClick={handleResetFilter} disabled={(isOpen || priceFilter.length > 0 || categoryFilter.length > 0) ? false : true}>Clear All</button>
         </section>
     );
 };
